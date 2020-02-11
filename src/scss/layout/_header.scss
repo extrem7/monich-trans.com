@@ -185,6 +185,9 @@
     &:hover {
       border: 3px solid $dark-yellow;
     }
+    &+ li {
+      margin-left: 2px;
+    }
   }
 }
 

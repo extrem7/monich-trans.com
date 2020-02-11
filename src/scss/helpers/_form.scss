@@ -139,6 +139,10 @@ a.icon, button.icon {
 .custom-file-input {
   height: 36px;
 }
+.custom-file-input:focus ~ .custom-file-label {
+  border-color: $yellow;
+  box-shadow: none;
+}
 .custom-file-label {
   border-color: #000;
   background-color: transparent;
