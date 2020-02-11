@@ -186,7 +186,7 @@
       border: 3px solid $dark-yellow;
     }
     &+ li {
-      margin-left: 2px;
+      margin-left: 5px;
     }
   }
 }
@@ -287,6 +287,11 @@
   }
   .language-menu li + li {
     margin-left: 10px;
+  }
+  .menu {
+    li + li {
+      margin-left: 0;
+    }
   }
 }
 
