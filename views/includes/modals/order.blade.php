@@ -10,31 +10,30 @@
                     <div class="col-lg-6 group-input">
                         <div class="form-group">
                             <input class="custom-select form-control dark date-picker" name="date"
-                                   placeholder="@trans('Дата перевозки')" required>
+                                   placeholder="@trans('Дата перевозки')">
                         </div>
                         <div class="form-group group-flex">
-                            <select class="custom-select form-control dark" name="loading_country" required>
+                            <select class="custom-select form-control dark" name="loading_country">
                                 <option selected disabled>@trans('Страна погрузки')</option>
                                 @foreach($order['countries'] as $country)
                                     <option>{{$country}}</option>
                                 @endforeach
                             </select>
-                            <input type="text" class="form-control dark" name="loading_city" placeholder="@trans('Город или код')"
-                                   required>
+                            <input type="text" class="form-control dark" name="loading_city" placeholder="@trans('Город или код')">
                         </div>
                         <div class="form-group group-flex">
-                            <select class="custom-select form-control dark" name="unloading_country" required>
+                            <select class="custom-select form-control dark" name="unloading_country">
                                 <option selected disabled>@trans('Страна выгрузки')</option>
                                 @foreach($order['countries'] as $country)
                                     <option>{{$country}}</option>
                                 @endforeach
                             </select>
                             <input type="text" class="form-control dark" name="unloading_city"
-                                   placeholder="@trans('Город или код')" required>
+                                   placeholder="@trans('Город или код')">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control dark" name="description"
-                                   placeholder="@trans('Наименование груза, тоннаж, обьем')" required>
+                                   placeholder="@trans('Наименование груза, тоннаж, обьем')">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control dark" name="name" placeholder="@trans('Укажите свое имя')"
@@ -68,7 +67,7 @@
                                 @foreach($order['tir'] as $method)
                                     <div class="custom-control custom-radio">
                                         <input type="radio" class="custom-control-input" name="tir"
-                                               id="tir-{{$loop->index}}" required {{$loop->index==0?'checked':''}} value="{{$method}}">
+                                               id="tir-{{$loop->index}}" {{$loop->index==0?'checked':''}} value="{{$method}}">
                                         <label class="custom-control-label"
                                                for="tir-{{$loop->index}}">{{$method}}</label>
                                     </div>
