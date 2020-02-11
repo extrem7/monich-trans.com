@@ -99,32 +99,35 @@ function counter() {
 function order() {
     $('#order form, .consultation-block, .contact-form').on('submit', e => {
         e.preventDefault()
-        const $form = $(e.currentTarget)
-        const formData = new FormData($form[0])
-        const spinner = $form.find('.spinner-border')
+        grecaptcha.execute('6Lci9tcUAAAAABTY83Hbnhf6mYq1H_gRONIMjV3W').then(function (token) {
+            console.log(`Token: ${token}`)
+            const $form = $(e.currentTarget)
+            const formData = new FormData($form[0])
+            const spinner = $form.find('.spinner-border')
 
-        spinner.animate({opacity: 1})
+            spinner.animate({opacity: 1})
 
-        $.ajax({
-            url: shared().adminAjax,
-            data: formData,
-            cache: false,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success(res) {
-                res = JSON.parse(res)
-                $('#order').modal('hide')
-                if (res.status === 'ok') {
-                    $('#success').modal('show')
-                    $form[0].reset()
+            $.ajax({
+                url: shared().adminAjax,
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success(res) {
+                    res = JSON.parse(res)
+                    $('#order').modal('hide')
+                    if (res.status === 'ok') {
+                        $('#success').modal('show')
+                        $form[0].reset()
+                    }
+                    setTimeout(() => {
+                        $('#success').modal('hide')
+                    }, 5000)
                 }
-                setTimeout(() => {
-                    $('#success').modal('hide')
-                }, 5000)
-            }
-        }).done(() => {
-            spinner.animate({opacity: 0})
+            }).done(() => {
+                spinner.animate({opacity: 0})
+            })
         })
     })
     $('input[type=file]').on('change', function (e) {

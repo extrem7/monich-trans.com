@@ -83,7 +83,7 @@ class Theme extends ThemeBase
 
         $message = "<html><head></head><body>";
         foreach ($fields as $key => $field) {
-            if ($field !== null)
+            if ($field !== '' && $field !== null)
                 $message .= "$key : $field<br>";
         }
         $message .= "<br><p>Данное сообщение сгенерировано автоматически. Пожалуйста, не отвечайте на него.</p>";

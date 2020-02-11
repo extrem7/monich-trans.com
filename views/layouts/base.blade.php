@@ -14,5 +14,6 @@
 @include('includes.modals.order')
 @include('includes.modals.success')
 {{wp_footer()}}
+<script src="https://www.google.com/recaptcha/api.js?render=6Lci9tcUAAAAABTY83Hbnhf6mYq1H_gRONIMjV3W"></script>
 </body>
 </html>
