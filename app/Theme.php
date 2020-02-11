@@ -90,7 +90,7 @@ class Theme extends ThemeBase
         $message .= "</body></html>";
 
 
-        $mail = wp_mail('extrem7ipad@gmail.com', $subject, $message, $headers, $attachments);
+        $mail = wp_mail(get_option('admin_email'), $subject, $message, $headers, $attachments);
         if (isset($attachment_file))
             unlink($attachment_file);
 
@@ -156,12 +156,13 @@ class Theme extends ThemeBase
                 'has_archive' => false,
             ]);
 
+        $services = get_post(pll_get_post(209));
         register_post_type(
             'service',
             [
                 'label' => null,
                 'labels' => [
-                    'name' => 'Услуги',
+                    'name' => $services->post_title,
                     'singular_name' => 'Услуга',
                     'add_new' => 'Добавить услугу',
                     'add_new_item' => 'Добавление услуги',

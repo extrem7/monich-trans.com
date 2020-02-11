@@ -4,14 +4,14 @@ function breadcrumbs()
 {
 
     /* === ОПЦИИ === */
-    $text['home'] = get_the_title( pll_get_post( front_id() ) );; // текст ссылки "Главная"
+    $text['home'] = get_the_title(pll_get_post(front_id()));; // текст ссылки "Главная"
     $text['category'] = '%s'; // текст для страницы рубрики
     $text['search'] = 'Результаты поиска по запросу "%s"'; // текст для страницы с результатами поиска
     $text['tag'] = 'Записи с тегом "%s"'; // текст для страницы тега
     $text['author'] = 'Статьи автора %s'; // текст для страницы автора
-    $text['404']      = pll__( 'Ошибка 404' ); // текст для страницы 404
-    $text['page']     = pll__( 'Страница' ) . ' %s'; // текст 'Страница N'
-    $text['cpage']    = pll__( 'Страница' ) . ' комментариев %s'; // текст 'Страница комментариев N'
+    $text['404'] = pll__('Ошибка 404'); // текст для страницы 404
+    $text['page'] = pll__('Страница') . ' %s'; // текст 'Страница N'
+    $text['cpage'] = pll__('Страница') . ' комментариев %s'; // текст 'Страница комментариев N'
 
     $wrap_before = '<div class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">'; // открывающий тег обертки
     $wrap_after = '</div><!-- .breadcrumbs -->'; // закрывающий тег обертки
@@ -107,7 +107,15 @@ function breadcrumbs()
                 $position += 1;
                 $post_type = get_post_type_object(get_post_type());
                 if ($position > 1) echo $sep;
-                echo sprintf($link, get_post_type_archive_link($post_type->name), $post_type->labels->name, $position);
+                $archive_link = get_post_type_archive_link($post_type->name);
+                if (get_post_type() == 'service') {
+                    $archive_link = get_permalink(pll_get_post(209));
+                }
+                echo sprintf($link, $archive_link, $post_type->labels->name, $position);
+                if ($post->post_parent !== 0) {
+                    $parent = get_post($post->post_parent);
+                    echo $sep . sprintf($link, get_permalink($parent->ID), $parent->post_title, $position);
+                }
                 if ($show_current) echo $sep . $before . get_the_title() . $after;
                 elseif ($show_last_sep) echo $sep;
             } else {

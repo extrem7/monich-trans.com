@@ -5,7 +5,7 @@
             <div class="dynamic-content first-service-text-block">@content</div>
             <div class="text-center">
                 <button class="btn btn-yellow btn-shadow mw-230 mb-5" data-toggle="modal" data-target="#order">
-                    @trans('Подробнее')
+                    @trans('Заказать услугу')
                 </button>
             </div>
         </div>
