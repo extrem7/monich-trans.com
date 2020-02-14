@@ -35,7 +35,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mt-3 text-center text-md-left">{{$copyrightBottom}}</div>
+            <div class="col-md-6 mt-3 text-center text-md-left">
+                {{$copyrightBottom}}
+                <a href="https://raxkor.com" target="_blank" class="copyright"
+                   rel="nofollow">@trans('Зроблено в команді "Raxkor"')</a>
+            </div>
             @include('includes.social')
         </div>
     </div>

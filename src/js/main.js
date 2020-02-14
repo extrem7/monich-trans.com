@@ -137,6 +137,16 @@ function order() {
             $(this).next().text($(this).siblings('span').text())
         }
     })
+
+    let recaptchaLoaded = false
+    $('input,select').one('input change', function () {
+        if (!recaptchaLoaded) {
+            $.getScript('https://www.google.com/recaptcha/api.js?render=6Lci9tcUAAAAABTY83Hbnhf6mYq1H_gRONIMjV3W', function () {
+                console.log('recaptcha has been loaded')
+            })
+            recaptchaLoaded = true
+        }
+    })
 }
 
 function shared() {
@@ -193,7 +203,5 @@ $(window).on('load', () => {
         $('.preloader .box').fadeOut(1000)
     }, 1000)
 })
-
-
 
 

@@ -36,8 +36,6 @@ class Theme extends ThemeBase
 
     public function mail()
     {
-        date_default_timezone_set('Europe/Kiev');
-
         $headers = "From: MonichTrans<admin@" . $_SERVER['SERVER_NAME'] . ">\r\n";
         $headers .= 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-Type: text/html; charset=utf-8' . "\r\n";
@@ -90,7 +88,7 @@ class Theme extends ThemeBase
         $message .= "</body></html>";
 
 
-        $mail = wp_mail(get_option('admin_email'), $subject, $message, $headers, $attachments);
+        $mail = wp_mail(get_field('email_for_order', 'option'), $subject, $message, $headers, $attachments);
         if (isset($attachment_file))
             unlink($attachment_file);
 
