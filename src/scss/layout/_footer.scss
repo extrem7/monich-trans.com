@@ -25,6 +25,13 @@
       display: block;
     }
   }
+  .copyright {
+    display: block;
+    color: #fff;
+    &:hover {
+      color: $yellow;
+    }
+  }
   ul {
     padding: 0;
     li {

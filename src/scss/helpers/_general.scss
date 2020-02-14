@@ -385,6 +385,10 @@ b, strong {
   }
 }
 
+.grecaptcha-badge {
+  display: none;
+}
+
 @media (max-width: 1199px) {
   .dynamic-content h2,
   .dynamic-content h3,
@@ -506,12 +510,3 @@ b, strong {
     }
   }
 }
-
-
-
-
-
-
-
-
-
