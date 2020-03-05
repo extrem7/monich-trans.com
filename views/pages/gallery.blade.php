@@ -8,10 +8,13 @@ global $post;
         <div class="container">
             <div class="row gallery-wrapper mob-inline-blocks">
                 @foreach($galleries as $gallery)
-                    @php $hidden = ($loop->index+1 > 9) @endphp
-                    @php $photos = get_field('photos',$gallery->ID)  @endphp
+                    @php
+                        $hidden = ($loop->index+1 > 9) ;
+                        $photos = get_field('photos',$gallery->ID)  ;
+                        $url = $photos[0]['caption']!==''?$photos[0]['caption']:$photos[0]['url'];
+                    @endphp
                     <div class="col-lg-4 col-md-6 gallery-item {{$hidden ? 'item-to-load' : ''}}" {!!$hidden ? 'style="display:none"' : ''!!}>
-                        <a href="{{$photos[0]['url']}}" data-fancybox="gallery-{{$gallery->post_name}}"
+                        <a href="{{$url}}" data-fancybox="gallery-{{$gallery->post_name}}"
                            class="gallery-main-img d-block"
                            style="background-image: url('{{get_the_post_thumbnail_url($gallery->ID)}}')">
                             <div class="gallery-title"><span
@@ -19,7 +22,9 @@ global $post;
                         </a>
                         @php unset($photos[0])  @endphp
                         @foreach($photos as $photo)
-                            <a href="{{$photo['url']}}" data-fancybox="gallery-{{$gallery->post_name}}" class="d-none">
+                            @php $url = $photo['caption']!==''?$photo['caption']:$photo['url']  @endphp
+                            <a href="{{$url}}"
+                               data-fancybox="gallery-{{$gallery->post_name}}" class="d-none">
                                 <img src="{{$photo['url']}}" alt="{{$photo['alt']}}">
                             </a>
                         @endforeach
