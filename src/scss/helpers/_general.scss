@@ -389,6 +389,7 @@ b, strong {
   display: none;
 }
 
+
 @media (max-width: 1199px) {
   .dynamic-content h2,
   .dynamic-content h3,
@@ -497,6 +498,12 @@ b, strong {
   }
   .section-title {
     font-size: 18px;
+  }
+
+  .title-line {
+    &:after {
+      margin-top: 15px;
+    }
   }
 
   .mob-inline-blocks {

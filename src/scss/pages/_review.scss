@@ -88,7 +88,7 @@
       span {
         display: block;
         background-color: #fff;
-        padding: 0 30px;
+        padding: 0 15px;
         z-index: 20;
         max-width: 70%;
         text-align: center;
@@ -109,5 +109,18 @@
         left: 0;
       }
     }
+  }
+}
+
+@media (max-width: 1199px) {
+  .review-author {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .review-box .second-title,
+  .review-author {
+    font-size: 14px;
   }
 }

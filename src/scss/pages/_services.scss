@@ -445,6 +445,7 @@
   .service-item {
     margin-bottom: 0;
     width: 290px;
+    flex-shrink: 0;
   }
 
   .section-about-service,

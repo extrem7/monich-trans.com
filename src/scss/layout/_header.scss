@@ -310,19 +310,26 @@
     li {
       display: inline-block;
       text-align: center;
-      width: 100%;
+      width: 90%;
       transition-property: transform,opacity,-webkit-transform;
-      transform: translate(0,50%);
-      transform: translate3d(50%,0,0);
+      transform: skew(-15deg, 0) translate(0,50%);
+      transform: skew(-15deg, 0) translate3d(50%,0,0);
       opacity: 0;
       padding: 0 15px;
       -webkit-transition: all .4s ease;
       transition: all .4s ease;
+      &.active,
+      &:hover {
+        border-color: #000;
+        a {
+          color: $yellow;
+        }
+      }
       a {
         font-size: 16px;
       }
       &+li {
-        margin-top: 30px;
+        margin-top: 18px;
         margin-left: 0;
       }
     }
@@ -358,8 +365,8 @@
     &.open-menu {
       transform: translateX(0);
       li {
-        transform: translate(0,0);
-        transform: translate3d(0,0,0);
+        transform: skew(-15deg, 0) translate(0,0);
+        transform: skew(-15deg, 0) translate3d(0,0,0);
         opacity: 1;
         &:nth-child(1) {
           transition-delay: .5s;
